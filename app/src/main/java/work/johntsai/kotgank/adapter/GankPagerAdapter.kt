@@ -1,8 +1,11 @@
-package work.johntsai.kotgank
+package work.johntsai.kotgank.adapter
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import work.johntsai.kotgank.ui.GankDataFragment
+import work.johntsai.kotgank.ui.MeiziFragment
+import work.johntsai.kotgank.ui.VideoFragment
 
 const val GANK_PAGER_NUMS: Int = 3
 

@@ -1,10 +1,12 @@
-package work.johntsai.kotgank
+package work.johntsai.kotgank.ui
 
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import work.johntsai.kotgank.adapter.GankPagerAdapter
+import work.johntsai.kotgank.R
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,9 +1,10 @@
-package work.johntsai.kotgank
+package work.johntsai.kotgank.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import work.johntsai.kotgank.R
 import work.johntsai.kotgank.common.inflate
 
 class VideoFragment : BaseFragment() {
