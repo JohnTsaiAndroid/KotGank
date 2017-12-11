@@ -1,14 +1,13 @@
 package work.johntsai.kotgank.adapter
 
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.item_meizi.view.*
-import work.johntsai.kotgank.ImageLoad
 import work.johntsai.kotgank.R
 import work.johntsai.kotgank.common.inflate
+import work.johntsai.kotgank.common.loadImage
 import work.johntsai.kotgank.model.GankDataModel
 
 /**
@@ -17,7 +16,7 @@ import work.johntsai.kotgank.model.GankDataModel
 class MeiziAdapter(val dataList:List<GankDataModel>):BaseRecyclerViewAdapter<GankDataModel>(dataList){
     override fun bindViewHolder(data: GankDataModel, holder: RecyclerView.ViewHolder?) {
         if(holder is MeiziViewHolder){
-            ImageLoad.load(data.url,holder.imageView)
+            holder.imageView.loadImage(data.url)
         }
     }
 
