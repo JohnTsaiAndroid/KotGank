@@ -39,23 +39,27 @@ class MeiziFragment : BaseFragment() {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
-                                {result-> datas.addAll(result.results)},
+                                {result->
+                                    datas.addAll(result.results)
+                                    adapter.notifyDataSetChanged()
+                                },
                                 {Log.d("cj","error in get data")},
                                 {Log.d("cj","Completed!")}
                         )
             }
-            recyclerView.addOnScrollListener(RecyclerViewOnLoadMoreListener(object :RecyclerViewOnLoadMoreListener.Callback{
-                override fun onLoad() {
-                    gankService?.let {
-                        gankService.getGankDataByType(GankDataType.WELFARE.value,10,++currentPage)
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(
-                                        {result-> datas.addAll(result.results)},
-                                        {Log.d("cj","error in get data")},
-                                        {Log.d("cj","Completed!")}
-                                )
-                    }
+            recyclerView.addOnScrollListener(RecyclerViewOnLoadMoreListener({
+                gankService?.let {
+                    gankService.getGankDataByType(GankDataType.WELFARE.value,10,++currentPage)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(
+                                    {result->
+                                        datas.addAll(result.results)
+                                        adapter.notifyDataSetChanged()
+                                    },
+                                    {Log.d("cj","error in get data")},
+                                    {Log.d("cj","Completed!")}
+                            )
                 }
             }))
         }
